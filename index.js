@@ -1,36 +1,34 @@
 // index.js
-
 import express from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
-import db from './db.js'; // Sesuaikan dengan lokasi file db.js Anda
-import authRoutes from './routes/authRoutes.js'; // Sesuaikan dengan lokasi file authRoutes.js Anda
-import dashboardRoutes from './routes/dashboardRoutes.js'; // Sesuaikan dengan lokasi file dashboardRoutes.js Anda
+import path from 'path';
+import db from './db.js';
+import authRoutes from './routes/authRoutes.js';
+import beritaRoutes from './routes/beritaRoutes.js';
 
 dotenv.config();
 
 const app = express();
 
 app.use(bodyParser.json());
+app.use(express.static(path.join(process.cwd(), 'public')));
 
-// Setup koneksi database
 db.authenticate()
   .then(() => {
-    console.log('Database sudah terhuung...');
-    return db.sync({ alter: true }); // Sinkronisasi model dengan struktur tabel
+    console.log('Database connected...');
+    return db.sync({ alter: true });
   })
   .catch((err) => {
-    console.error('gagal connect ke database:', err);
+    console.error('Unable to connect to the database:', err);
   });
 
-// Route untuk auth
 app.use('/api/auth', authRoutes);
-
-// Route untuk dashboard
-app.use('/api/dashboard', dashboardRoutes);
+app.use('/api', beritaRoutes);
+app.use('/api/berita', beritaRoutes);
 
 const port = process.env.PORT || 8080;
 
 app.listen(port, () => {
-  console.log(`Server berjalan di port ${port}`);
+  console.log(`Server running on port ${port}`);
 });
