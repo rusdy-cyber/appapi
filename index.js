@@ -5,7 +5,7 @@ import path from 'path';
 import db from './db.js';
 import authRoutes from './routes/authRoutes.js';
 import beritaRoutes from './routes/beritaRoutes.js';
-
+import ekskulRoutes from './routes/ekskulRoutes.js';
 dotenv.config();
 
 const app = express();
@@ -25,6 +25,7 @@ db.authenticate()
 app.use('/api/auth', authRoutes);
 app.use('/api', beritaRoutes);
 app.use('/api/berita', beritaRoutes);
+app.use('/api/ekskul', ekskulRoutes);
 
 const port = process.env.PORT || 8080;
 
