@@ -6,13 +6,27 @@ import db from './db.js';
 import authRoutes from './routes/authRoutes.js';
 import beritaRoutes from './routes/beritaRoutes.js';
 import ekskulRoutes from './routes/ekskulRoutes.js';
+import cors from 'cors';
 dotenv.config();
 
 const app = express();
 
+app.use(cors());
+
 app.use(bodyParser.json());
 app.use(express.static(path.join(process.cwd(), 'public')));
 
+const cleanDuplicateIndexes = async (tableName, columnName) => {
+  const queryInterface = db.getQueryInterface();
+  const indexes = await queryInterface.showIndex(tableName);
+
+  const duplicateIndexes = indexes.filter(index => index.name.startsWith(columnName));
+  if (duplicateIndexes.length > 1) {
+    for (let i = 1; i < duplicateIndexes.length; i++) {
+      await queryInterface.removeIndex(tableName, duplicateIndexes[i].name);
+    }
+  }
+};
 db.authenticate()
   .then(() => {
     console.log('Database connected...');

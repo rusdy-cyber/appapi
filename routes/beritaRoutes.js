@@ -10,7 +10,7 @@ const router = express.Router();
 // Mengatur storage engine untuk multer
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'public/uploads');
+    cb(null, 'public/uploads'); //public/uploads
   },
   filename: (req, file, cb) => {
     cb(null, Date.now() + path.extname(file.originalname));

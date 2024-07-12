@@ -2,11 +2,11 @@
 import { Sequelize } from 'sequelize';
 
 const db = new Sequelize({
-  dialect: 'mysql',
-  host: 'localhost',
-  username: 'root',
-  password: '',
-  database: 'sdn46api',
+  dialect: 'mysql',  
+  host: 'localhost', //localhost
+  username: 'root', //root
+  password: '', //''
+  database: 'sdn46api', //sdn46api
   define: {
     timestamps: false, // Set timestamps to false if you don't want Sequelize to handle createdAt and updatedAt
   },
