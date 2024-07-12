@@ -1,0 +1,694 @@
+{
+	"info": {
+		"_postman_id": "af2aceae-7e1e-4923-a18b-6b4b58b51441",
+		"name": "end-point",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35165652"
+	},
+	"item": [
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"admin3\",\r\n  \"nama\": \"hasrullah\",\r\n  \"sebagai\": \"Admin3\",\r\n  \"email\": \"admin@gmail.com\",\r\n  \"password\": \"kosong\",\r\n  \"departemen\": \"SD 46 BENGKAIS\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{auth}}/register",
+							"host": [
+								"{{auth}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"admin2@gmail.com\",\r\n  \"password\": \"kosong\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyfSwiaWF0IjoxNzE5MjI2ODUzLCJleHAiOjE3MTkyMzA0NTN9.UE_mx-WyduKAI8xa1n5QyA5VYcEgO63nvO1mmIeBd5I",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/auth/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tambah berita",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxfSwiaWF0IjoxNzE5Mzg5Nzc3LCJleHAiOjE3MTkzOTMzNzd9.GBU6EZplIFblJqtj1vJQU83ho-GUHf4wVkAe9xikioo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "gambar",
+									"type": "file",
+									"src": "postman-cloud:///1ef32985-9d45-4480-8d2f-678ab015e009"
+								},
+								{
+									"key": "title",
+									"value": "berita baru lagi",
+									"type": "text"
+								},
+								{
+									"key": "paragraf",
+									"value": "ini adalah berita baru lagi",
+									"type": "text"
+								},
+								{
+									"key": "admin",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/berita",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"berita"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "uplod profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxfSwiaWF0IjoxNzE5MjkwODM3LCJleHAiOjE3MTkyOTQ0Mzd9.EvGKsQC5-eAKJCM06ZOJiX-l3ynkWWBZ8K0sEcBrOSs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "image/jpeg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "postman-cloud:///1ef32985-9d45-4480-8d2f-678ab015e009"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{auth}}/upload-profile",
+							"host": [
+								"{{auth}}"
+							],
+							"path": [
+								"upload-profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tambah ekskul",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxfSwiaWF0IjoxNzE5NDE5OTYyLCJleHAiOjE3MTk0MjM1NjJ9.HAWiDxzy1VdC8KTNA8ow-FLEpU6qRWvYZ18KHvcP3-4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "gambar",
+									"type": "file",
+									"src": "postman-cloud:///1ef32b33-07b8-41b0-a129-97d7358b2447"
+								},
+								{
+									"key": "title",
+									"value": "ini adalah ekskul",
+									"type": "text"
+								},
+								{
+									"key": "paragraf",
+									"value": "ini adalah ekskul baru",
+									"type": "text"
+								},
+								{
+									"key": "admin",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/ekskul",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"ekskul"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "get",
+			"item": [
+				{
+					"name": "dasboard",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyfSwiaWF0IjoxNzE5MjIxMTI4LCJleHAiOjE3MTkyMjQ3Mjh9.iScZXp17ZxiFSfeVJSz4QQx3Ro-SqCJFwPVmRL2F9yc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/dashboard",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"dashboard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "berita",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxfSwiaWF0IjoxNzE5Mzg4MTI1LCJleHAiOjE3MTkzOTE3MjV9.Iu4nCd5GfgKSJ6ATdd6LY7GlXm3MtAHxA-Kh65FFyQ0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/berita?adminId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"berita"
+							],
+							"query": [
+								{
+									"key": "adminId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "acara",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "view avatar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxfSwiaWF0IjoxNzE5Mjg5MDk0LCJleHAiOjE3MTkyOTI2OTR9.g6mZbCDNQJNT-rnhZgGnkVNlemS9_Y8ADET89hDOUhk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "image/jpeg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/auth/profile-picture",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"profile-picture"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ekskul",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxfSwiaWF0IjoxNzE5NDE5OTYyLCJleHAiOjE3MTk0MjM1NjJ9.HAWiDxzy1VdC8KTNA8ow-FLEpU6qRWvYZ18KHvcP3-4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/ekskul?adminId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"ekskul"
+							],
+							"query": [
+								{
+									"key": "adminId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "delete",
+			"item": [
+				{
+					"name": "delete berita",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxfSwiaWF0IjoxNzE5Mzg5Nzc3LCJleHAiOjE3MTkzOTMzNzd9.GBU6EZplIFblJqtj1vJQU83ho-GUHf4wVkAe9xikioo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/berita/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"berita",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete ekskul",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxfSwiaWF0IjoxNzE5NDE5OTYyLCJleHAiOjE3MTk0MjM1NjJ9.HAWiDxzy1VdC8KTNA8ow-FLEpU6qRWvYZ18KHvcP3-4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/ekskul/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"ekskul",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "put",
+			"item": [
+				{
+					"name": "update admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxfSwiaWF0IjoxNzE5MjkyOTQxLCJleHAiOjE3MTkyOTY1NDF9.IxHK5jqmOTJe_eTW3A241NU6tFbS9-a2v6EhHhj17nY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"admin\",\r\n  \"nama\": \"iwa\",\r\n  \"email\": \"admin2@gmail.com\",\r\n  \"password\": \"kosong\",\r\n  \"departemen\": \"sd 46 BENGKAIS\",\r\n  \"sebagai\": \"admin1\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/admin/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"admin",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update berita",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxfSwiaWF0IjoxNzE5Mzg4MTI1LCJleHAiOjE3MTkzOTE3MjV9.Iu4nCd5GfgKSJ6ATdd6LY7GlXm3MtAHxA-Kh65FFyQ0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "gambar",
+									"type": "file",
+									"src": "postman-cloud:///1ef24b8a-c20a-4e20-b5b7-020c4702c52e"
+								},
+								{
+									"key": "title",
+									"value": "berita update",
+									"type": "text"
+								},
+								{
+									"key": "paragraf",
+									"value": "ini berta update",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/berita/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"berita",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update ekskul",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxfSwiaWF0IjoxNzE5NDE5OTYyLCJleHAiOjE3MTk0MjM1NjJ9.HAWiDxzy1VdC8KTNA8ow-FLEpU6qRWvYZ18KHvcP3-4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "gambar",
+									"type": "file",
+									"src": "postman-cloud:///1ef24b8a-c20a-4e20-b5b7-020c4702c52e"
+								},
+								{
+									"key": "title",
+									"value": "ini update ekskul",
+									"type": "text"
+								},
+								{
+									"key": "paragraf",
+									"value": "ini eksukl yang di update",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/ekskul/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"ekskul",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
